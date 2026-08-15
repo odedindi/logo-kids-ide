@@ -93,13 +93,24 @@ function App() {
     loadPaneWidth('logo-kids-canvas-width', DEFAULT_CANVAS_WIDTH)
   );
 
-  const [isMobile, setIsMobile] = useState(() => window.innerWidth <= 900);
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth <= 640);
+  const [isTablet, setIsTablet] = useState(() => window.innerWidth > 640 && window.innerWidth <= 1024);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(() => {
-    const onResize = () => setIsMobile(window.innerWidth <= 900);
+    const onResize = () => {
+      const w = window.innerWidth;
+      setIsMobile(w <= 640);
+      setIsTablet(w > 640 && w <= 1024);
+    };
     window.addEventListener('resize', onResize);
     return () => window.removeEventListener('resize', onResize);
   }, []);
+
+  // Close mobile sidebar when switching tabs or resizing to desktop
+  useEffect(() => {
+    if (!isMobile) setSidebarOpen(false);
+  }, [isMobile]);
 
   useEffect(() => {
     if (!isMobile) {
@@ -301,15 +312,31 @@ function App() {
 
   const tabKeys: SidebarTab[] = ['commands', 'tutorials', 'challenges', 'concepts'];
 
-  const sidebarStyle = isMobile ? {} : { width: sidebarWidth, minWidth: sidebarWidth };
-  const canvasStyle = isMobile ? {} : { width: canvasWidth, minWidth: canvasWidth };
+  const sidebarStyle = (isMobile || isTablet) ? {} : { width: sidebarWidth, minWidth: sidebarWidth };
+  const canvasStyle = (isMobile || isTablet) ? {} : { width: canvasWidth, minWidth: canvasWidth };
 
   return (
     <div className="app" dir={dir}>
-      <Header onOpenShortcuts={() => setShowShortcuts(true)} onOpenAccessibility={() => setShowAccessibility(true)} />
+      <Header
+        onOpenShortcuts={() => setShowShortcuts(true)}
+        onOpenAccessibility={() => setShowAccessibility(true)}
+        isMobile={isMobile}
+        sidebarOpen={sidebarOpen}
+        onToggleSidebar={() => setSidebarOpen((o) => !o)}
+      />
 
       <div className="main-layout">
-        <aside className="sidebar" dir={dir} role="complementary" aria-label={t('ariaLabels.sidebar')} style={sidebarStyle}>
+        {isMobile && sidebarOpen && (
+          <div className="sidebar-backdrop" onClick={() => setSidebarOpen(false)} aria-hidden="true" />
+        )}
+
+        <aside
+          className={`sidebar ${isMobile && sidebarOpen ? 'mobile-open' : ''}`}
+          dir={dir}
+          role="complementary"
+          aria-label={t('ariaLabels.sidebar')}
+          style={sidebarStyle}
+        >
           <nav className="sidebar-tabs" role="tablist" aria-label={t('sidebar.title')}>
             {tabKeys.map((tab) => (
               <button
@@ -338,7 +365,7 @@ function App() {
           </div>
         </aside>
 
-        {!isMobile && (
+        {!isMobile && !isTablet && (
           <ResizeHandle
             direction="horizontal"
             onResize={handleSidebarResize}
@@ -358,7 +385,7 @@ function App() {
           <ProblemsPanel diagnostics={diagnostics} onJumpToLine={handleJumpToLine} />
         </div>
 
-        {!isMobile && (
+        {!isMobile && !isTablet && (
           <ResizeHandle
             direction="horizontal"
             onResize={handleCanvasResize}
@@ -379,6 +406,7 @@ function App() {
             onReset={handleReset}
             onSpeedChange={handleSpeedChange}
             onLoadExample={handleLoadExample}
+            isMobile={isMobile}
           />
 
           <TurtleCanvas

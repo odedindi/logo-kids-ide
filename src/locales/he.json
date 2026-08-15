@@ -284,7 +284,9 @@
     "languageSwitch": "החלף שפה ל-{{lang}}",
     "keyboardShortcuts": "קיצורי מקלדת",
     "accessibilityStatement": "הצהרת נגישות",
-    "fontSize": "התאם גודל גופן"
+    "fontSize": "התאם גודל גופן",
+    "openSidebar": "פתח סרגל צד",
+    "closeSidebar": "סגור סרגל צד"
   },
   "shortcuts": {
     "title": "קיצורי מקלדת",

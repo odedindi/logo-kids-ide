@@ -284,7 +284,9 @@
     "languageSwitch": "Switch language to {{lang}}",
     "keyboardShortcuts": "Keyboard shortcuts",
     "accessibilityStatement": "Accessibility statement",
-    "fontSize": "Adjust font size"
+    "fontSize": "Adjust font size",
+    "openSidebar": "Open sidebar",
+    "closeSidebar": "Close sidebar"
   },
   "shortcuts": {
     "title": "Keyboard Shortcuts",

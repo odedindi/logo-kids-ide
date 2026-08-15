@@ -12,6 +12,7 @@ interface ToolbarProps {
   onReset: () => void;
   onSpeedChange: (speed: number) => void;
   onLoadExample: (code: string) => void;
+  isMobile?: boolean;
 }
 
 export function Toolbar({
@@ -23,12 +24,13 @@ export function Toolbar({
   onReset,
   onSpeedChange,
   onLoadExample,
+  isMobile,
 }: ToolbarProps) {
   const { t, i18n } = useTranslation();
   const dir = getDir(i18n.language);
 
   return (
-    <div className="toolbar" dir={dir} role="toolbar" aria-label={t('ariaLabels.toolbar')}>
+    <div className={`toolbar ${isMobile ? 'toolbar-mobile' : ''}`} dir={dir} role="toolbar" aria-label={t('ariaLabels.toolbar')}>
       <div className="toolbar-controls">
         <button
           className="toolbar-btn run-btn"
@@ -59,40 +61,42 @@ export function Toolbar({
         </button>
       </div>
 
-      <div className="toolbar-speed">
-        <Gauge size={14} />
-        <label>{t('toolbar.speed')}</label>
-        <input
-          type="range"
-          min="0.1"
-          max="3"
-          step="0.1"
-          value={speed}
-          onChange={(e) => onSpeedChange(parseFloat(e.target.value))}
-          aria-label={t('toolbar.speed')}
-        />
-        <span className="speed-value">{speed.toFixed(1)}×</span>
-      </div>
+      <div className="toolbar-secondary">
+        <div className="toolbar-speed">
+          <Gauge size={14} />
+          {!isMobile && <label>{t('toolbar.speed')}</label>}
+          <input
+            type="range"
+            min="0.1"
+            max="3"
+            step="0.1"
+            value={speed}
+            onChange={(e) => onSpeedChange(parseFloat(e.target.value))}
+            aria-label={t('toolbar.speed')}
+          />
+          <span className="speed-value">{speed.toFixed(1)}×</span>
+        </div>
 
-      <div className="toolbar-examples">
-        <label>{t('toolbar.examplesLabel')}</label>
-        <select
-          onChange={(e) => {
-            const example = EXAMPLE_PROGRAMS.find((ex) => ex.id === e.target.value);
-            if (example) onLoadExample(example.code);
-          }}
-          defaultValue=""
-          aria-label={t('toolbar.examplesLabel')}
-        >
-          <option value="" disabled>
-            {t('toolbar.examplesPlaceholder')}
-          </option>
-          {EXAMPLE_PROGRAMS.map((example) => (
-            <option key={example.id} value={example.id}>
-              {t(example.nameKey) as string}
+        <div className="toolbar-examples">
+          {!isMobile && <label>{t('toolbar.examplesLabel')}</label>}
+          <select
+            onChange={(e) => {
+              const example = EXAMPLE_PROGRAMS.find((ex) => ex.id === e.target.value);
+              if (example) onLoadExample(example.code);
+            }}
+            defaultValue=""
+            aria-label={t('toolbar.examplesLabel')}
+          >
+            <option value="" disabled>
+              {isMobile ? '…' : t('toolbar.examplesPlaceholder')}
             </option>
-          ))}
-        </select>
+            {EXAMPLE_PROGRAMS.map((example) => (
+              <option key={example.id} value={example.id}>
+                {t(example.nameKey) as string}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
     </div>
   );
