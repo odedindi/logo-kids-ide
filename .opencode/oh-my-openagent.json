@@ -1,0 +1,61 @@
+{
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
+  "agents": {
+    "sisyphus": {
+      "model": "opencode/nemotron-3-ultra-free"
+    },
+    "sisyphus-junior": {
+      "model": "opencode/laguna-s-2.1-free"
+    },
+    "oracle": {
+      "model": "opencode/nemotron-3-ultra-free"
+    },
+    "librarian": {
+      "model": "opencode/north-mini-code-free"
+    },
+    "explore": {
+      "model": "opencode/ling-3.0-tiny-free"
+    },
+    "multimodal-looker": {
+      "model": "opencode/mimo-v2.5-free"
+    },
+    "prometheus": {
+      "model": "opencode/nemotron-3-ultra-free"
+    },
+    "metis": {
+      "model": "opencode/nemotron-3-ultra-free"
+    },
+    "momus": {
+      "model": "opencode/nemotron-3-ultra-free"
+    },
+    "atlas": {
+      "model": "opencode/laguna-s-2.1-free"
+    }
+  },
+  "categories": {
+    "visual-engineering": {
+      "model": "opencode/laguna-s-2.1-free"
+    },
+    "ultrabrain": {
+      "model": "opencode/nemotron-3-ultra-free"
+    },
+    "deep": {
+      "model": "opencode/nemotron-3-ultra-free"
+    },
+    "artistry": {
+      "model": "opencode/laguna-s-2.1-free"
+    },
+    "quick": {
+      "model": "opencode/deepseek-v4-flash-free"
+    },
+    "unspecified-low": {
+      "model": "opencode/ling-3.0-tiny-free"
+    },
+    "unspecified-high": {
+      "model": "opencode/laguna-s-2.1-free"
+    },
+    "writing": {
+      "model": "opencode/ling-3.0-tiny-free"
+    }
+  }
+}

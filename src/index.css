@@ -1,0 +1,105 @@
+:root {
+  --primary: #6366f1;
+  --primary-light: #818cf8;
+  --primary-dark: #4f46e5;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --bg-main: #f8fafc;
+  --bg-panel: #ffffff;
+  --bg-sidebar: #f1f5f9;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+  --border: #e2e8f0;
+  --border-focus: #6366f1;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --hint-bg: #fef9c3;
+  --hint-text: #92400e;
+  --tip-bg: #fef9c3;
+  --tip-heading: #92400e;
+  --tip-text: #78350f;
+  --hover-bg: var(--border);
+  --problem-hover: #fef2f2;
+  --nav-hover: #ede9fe;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --font-mono: 'Fira Code', 'JetBrains Mono', 'Cascadia Code', monospace;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-main);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+[dir="rtl"] body {
+  font-family: 'Heebo', var(--font-sans);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+code {
+  font-family: var(--font-mono);
+}
+
+[data-theme="dark"] {
+  --primary: #818cf8;
+  --primary-light: #a5b4fc;
+  --primary-dark: #6366f1;
+  --success: #4ade80;
+  --warning: #fbbf24;
+  --error: #f87171;
+  --bg-main: #0f172a;
+  --bg-panel: #1e293b;
+  --bg-sidebar: #1a2332;
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --border: #334155;
+  --border-focus: #818cf8;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3);
+  --hint-bg: #2e2a1e;
+  --hint-text: #fbbf24;
+  --tip-bg: #1e2a1e;
+  --tip-heading: #4ade80;
+  --tip-text: #86efac;
+  --hover-bg: #293548;
+  --problem-hover: #2a1e1e;
+  --nav-hover: #292548;
+}
+
+[data-theme="dark"] body {
+  background: var(--bg-main);
+  color: var(--text-primary);
+}

@@ -1,0 +1,327 @@
+{
+  "app": {
+    "name": "Logo Kids",
+    "tagline": "Learn to code by drawing with the turtle!"
+  },
+  "common": {
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "hint": "Hint"
+  },
+  "header": {
+    "settings": "Settings",
+    "welcome": "Welcome Guide",
+    "theme": {
+      "dark": "Dark Mode",
+      "light": "Light Mode"
+    },
+    "languageSwitcher": {
+      "label": "Language",
+      "en": "EN",
+      "he": "עב"
+    }
+  },
+  "toolbar": {
+    "run": "Run",
+    "step": "Step",
+    "pause": "Pause",
+    "resume": "Resume",
+    "reset": "Reset",
+    "clear": "Clear",
+    "speed": "Speed",
+    "speedLabel": "{{speed}}×",
+    "slowLabel": "Slow",
+    "fastLabel": "Fast",
+    "examplesPlaceholder": "Load an example…",
+    "examplesLabel": "Examples"
+  },
+  "sidebar": {
+    "title": "Commands",
+    "clickToInsert": "Click to insert into editor",
+    "categories": {
+      "movement": "Movement",
+      "pen": "Pen",
+      "drawing": "Drawing",
+      "colors": "Colors",
+      "controlFlow": "Control Flow",
+      "advanced": "Advanced"
+    }
+  },
+  "tabs": {
+    "commands": "Commands",
+    "tutorials": "Tutorials",
+    "challenges": "Challenges",
+    "concepts": "Concepts"
+  },
+  "problems": {
+    "title": "Problems",
+    "noProblems": "No problems! Great job! 🎉",
+    "collapseLabel": "Collapse problems panel",
+    "expandLabel": "Expand problems panel",
+    "line": "Line {{line}}",
+    "error": "Error",
+    "warning": "Warning",
+    "count_one": "{{count}} problem",
+    "count_other": "{{count}} problems"
+  },
+  "welcome": {
+    "title": "Welcome to Logo Kids! 🐢",
+    "subtitle": "Let's learn to code by drawing with a turtle!",
+    "whatIsLogoTitle": "What is Logo?",
+    "whatIsLogoText": "Logo is a fun programming language where you give directions to a turtle 🐢 to draw amazing pictures on the screen!",
+    "howToUseTitle": "How to use the app",
+    "steps": {
+      "step1": "Type commands in the editor on the left side",
+      "step2": "Press the ▶ Run button to watch your turtle draw!",
+      "step3": "Load example programs to see what Logo can do",
+      "step4": "Click command blocks in the sidebar to insert them"
+    },
+    "turtleTipTitle": "Turtle Tip! 💡",
+    "turtleTip": "The turtle starts in the center, facing up. FD moves it forward, RT turns it right, and LT turns it left!",
+    "closeButton": "Let's Start! 🚀",
+    "dontShowAgain": "Don't show this again"
+  },
+  "examples": {
+    "title": "Example Programs",
+    "square": "Square",
+    "star": "Five-Point Star",
+    "hexagon": "Hexagon",
+    "diamond": "Diamond",
+    "spiral": "Spiral",
+    "flower": "Flower",
+    "rainbow": "Rainbow",
+    "house": "House",
+    "tree": "Fractal Tree",
+    "robot": "Robot"
+  },
+  "tutorials": {
+    "title": "Tutorials",
+    "loadCode": "Load this code",
+    "gettingStarted": {
+      "title": "Getting Started",
+      "description": "Learn the basics of Logo step by step",
+      "welcome": {
+        "title": "Your First Command",
+        "content": "FD means 'Forward'. Type FD 100 and press Run to move the turtle forward!"
+      },
+      "turning": {
+        "title": "Turning the Turtle",
+        "content": "RT means 'Right Turn'. Try FD 100, then RT 90, then FD 100 again to draw an L shape!"
+      },
+      "repeat": {
+        "title": "Repeating Commands",
+        "content": "REPEAT lets you do things multiple times. REPEAT 4 [ FD 100 RT 90 ] draws a square!"
+      }
+    },
+    "colorsAndPen": {
+      "title": "Colors & Pen Control",
+      "description": "Learn to use colors and control the pen",
+      "penUpDown": {
+        "title": "Pen Up & Pen Down",
+        "content": "PU lifts the pen (stops drawing), PD puts it down (starts drawing). Use them to make gaps in your drawing!"
+      },
+      "changingColors": {
+        "title": "Changing Colors",
+        "content": "SETPC followed by a number changes the pen color. Try different numbers: 1=red, 2=blue, 3=green, 4=yellow!"
+      }
+    },
+    "procedures": {
+      "title": "Procedures",
+      "description": "Create your own reusable commands",
+      "define": {
+        "title": "Defining a Procedure",
+        "content": "Use TO and END to create your own commands. TO SQUARE ... END creates a new command called SQUARE!"
+      },
+      "call": {
+        "title": "Using Your Procedure",
+        "content": "After defining a procedure, you can call it by name. Just type SQUARE to run it!"
+      },
+      "params": {
+        "title": "Parameters",
+        "content": "Add :name after TO to accept input. TO BOX :SIZE creates a procedure that takes a size number!"
+      }
+    },
+    "conditionals": {
+      "title": "Conditionals",
+      "description": "Make decisions with IF and IFELSE",
+      "ifBasic": {
+        "title": "Using IF",
+        "content": "IF checks a condition. If it's true, it runs the commands in brackets. IF :SIZE > 50 [ FD :SIZE ] only moves if SIZE is bigger than 50!"
+      },
+      "ifElseBasic": {
+        "title": "Using IFELSE",
+        "content": "IFELSE has two blocks. The first runs when true, the second when false. Like a choice between two paths!"
+      }
+    }
+  },
+  "challenges": {
+    "title": "Challenges",
+    "startChallenge": "Start Challenge",
+    "checkSolution": "Check my solution",
+    "feedback": {
+      "success": "Amazing, you did it! The turtle is so proud of you! 🎉",
+      "retry": "Not quite yet — peek at the hints and give it another try! You've got this! 💪"
+    },
+    "hints": "Hints",
+    "learnMore": "Learn about this concept",
+    "difficulty": {
+      "easy": "Easy",
+      "medium": "Medium",
+      "hard": "Hard"
+    },
+    "drawSquare": {
+      "title": "Draw a Square",
+      "description": "Use REPEAT to draw a perfect square with sides of 100 steps.",
+      "hint1": "A square has 4 equal sides.",
+      "hint2": "Try: REPEAT 4 [ FD 100 RT 90 ]"
+    },
+    "drawTriangle": {
+      "title": "Draw a Triangle",
+      "description": "Draw an equilateral triangle where each side is 100 steps.",
+      "hint1": "A triangle has 3 equal sides.",
+      "hint2": "The turtle needs to turn 120 degrees at each corner."
+    },
+    "drawStar": {
+      "title": "Draw a Star",
+      "description": "Draw a five-pointed star using REPEAT.",
+      "hint1": "A 5-point star uses 144 degree turns.",
+      "hint2": "Try: REPEAT 5 [ FD 150 RT 144 ]"
+    },
+    "drawHexagon": {
+      "title": "Draw a Hexagon",
+      "description": "Draw a six-sided shape where each side is 80 steps.",
+      "hint1": "A hexagon has 6 equal sides.",
+      "hint2": "The turtle turns 60 degrees at each corner."
+    },
+    "drawDiamond": {
+      "title": "Draw a Diamond",
+      "description": "Draw a diamond shape using two different angles.",
+      "hint1": "A diamond has 4 sides but only 2 different angles.",
+      "hint2": "Try: REPEAT 2 [ FD 120 RT 60 FD 120 RT 120 ]"
+    },
+    "colorfulShape": {
+      "title": "Colorful Shape",
+      "description": "Draw a shape that changes colors using SETPC.",
+      "hint1": "SETPC followed by a number changes color.",
+      "hint2": "Try: SETPC 1 for red, SETPC 2 for blue, SETPC 3 for green."
+    },
+    "drawSpiral": {
+      "title": "Draw a Spiral",
+      "description": "Create a procedure that draws an expanding spiral.",
+      "hint1": "Use TO and END to create a procedure.",
+      "hint2": "Each time, move forward a little more than before.",
+      "hint3": "Call the procedure again at the end with a bigger number."
+    },
+    "drawTree": {
+      "title": "Draw a Fractal Tree",
+      "description": "Create a procedure that draws a branching tree pattern.",
+      "hint1": "Use IF to stop when branches get too small.",
+      "hint2": "Call BRANCH twice with smaller sizes to create forks.",
+      "hint3": "Use BK to go back after each branch."
+    }
+  },
+  "concepts": {
+    "title": "Programming Concepts",
+    "examples": "Examples",
+    "tryIt": "Try it!",
+    "repeat": {
+      "title": "REPEAT Loop",
+      "content": "REPEAT lets you execute commands multiple times without typing them over and over. Write REPEAT followed by a number, then put commands in brackets [ ].",
+      "example1": "Draws a square by repeating 4 times",
+      "example2": "Draws a hexagon by repeating 6 times"
+    },
+    "procedures": {
+      "title": "Procedures (Functions)",
+      "content": "Procedures let you create your own commands. Use TO to start, give it a name, and END to finish. You can even pass numbers as parameters!",
+      "example1": "Defines and calls a SQUARE procedure",
+      "example2": "A STAR procedure that takes a size parameter"
+    },
+    "colors": {
+      "title": "Colors",
+      "content": "SETPC followed by a number changes the pen color. Try different numbers to make colorful drawings! 1=red, 2=blue, 3=green, 4=yellow, 5=purple.",
+      "example1": "Sets the pen to red and draws",
+      "example2": "Changes colors while drawing"
+    },
+    "pen": {
+      "title": "Pen Up & Down",
+      "content": "PU lifts the pen up (stops drawing), PD puts it down (starts drawing). Use PU to move without leaving a trail!",
+      "example1": "Draw with a gap in the middle",
+      "example2": "Return home without drawing"
+    },
+    "coordinates": {
+      "title": "Coordinates",
+      "content": "The turtle moves on a grid. (0,0) is the center. SETXY X Y moves to a specific spot. HOME returns to center.",
+      "example1": "Move to position (100, 50)",
+      "example2": "Return to the center"
+    },
+    "recursion": {
+      "title": "Recursion",
+      "content": "Recursion is when a procedure calls itself. It's like a Russian nesting doll — each time the procedure runs, it creates a smaller version of itself. Use IF to stop when things get too small!",
+      "example1": "A spiral that gets bigger each time",
+      "example2": "A branching tree pattern"
+    }
+  },
+  "errors": {
+    "unknownCommand": "Hmm, I don't know the command \"{{command}}\". Did you spell it right?",
+    "missingArgument": "The \"{{command}}\" command needs a number after it. Try: {{command}} 50",
+    "wrongArgumentCount": "\"{{command}}\" needs {{expected}} number(s) but got {{received}}.",
+    "unexpectedToken": "Something looks odd here. Check your brackets [ ] and make sure they match!",
+    "divisionByZero": "Oops! You can't divide by zero — even turtles can't do that! 🐢",
+    "stackOverflow": "The program got stuck going around in circles! Check your REPEAT commands.",
+    "undefinedProcedure": "I don't know a procedure called \"{{name}}\". Did you define it with TO?",
+    "generic": "There's something wrong on this line. Check the command carefully!"
+  },
+  "ariaLabels": {
+    "mainEditor": "Code editor",
+    "turtleCanvas": "Turtle canvas",
+    "sidebar": "Commands sidebar",
+    "header": "Application header",
+    "toolbar": "Run controls toolbar",
+    "problemsPanel": "Problems panel",
+    "resizeHandle": "Drag to resize panels",
+    "closeModal": "Close welcome guide",
+    "languageSwitch": "Switch language to {{lang}}",
+    "keyboardShortcuts": "Keyboard shortcuts",
+    "accessibilityStatement": "Accessibility statement",
+    "fontSize": "Adjust font size"
+  },
+  "shortcuts": {
+    "title": "Keyboard Shortcuts",
+    "subtitle": "Navigate the app efficiently with your keyboard",
+    "close": "Got it!",
+    "runPause": "Run / Pause program",
+    "step": "Step through program",
+    "reset": "Reset canvas",
+    "format": "Format code",
+    "undo": "Undo",
+    "redo": "Redo",
+    "toggleShortcuts": "Toggle this shortcuts panel"
+  },
+  "accessibility": {
+    "title": "Accessibility Statement",
+    "intro": "Logo Kids IDE is committed to ensuring digital accessibility for all users, including those with disabilities.",
+    "keyboardTitle": "Keyboard Navigation",
+    "keyboardText": "All features are accessible via keyboard. Use Tab to navigate between controls, Enter or Space to activate buttons, and Escape to close dialogs. Arrow keys work within menus and panels.",
+    "screenReaderTitle": "Screen Reader Support",
+    "screenReaderText": "All interactive elements have ARIA labels. The canvas provides live updates for turtle position. Status changes are announced via aria-live regions.",
+    "contrastTitle": "Color and Contrast",
+    "contrastText": "The app supports both light and dark themes, each designed to meet WCAG 2.1 AA contrast requirements. All text maintains at least 4.5:1 contrast ratio against its background.",
+    "fontSizeTitle": "Font Size",
+    "fontSizeText": "The editor font size can be adjusted using Ctrl+/Ctrl- keyboard shortcuts or the font size control in the editor toolbar.",
+    "feedbackTitle": "Feedback",
+    "feedbackText": "If you encounter any accessibility barriers, please let us know so we can improve the experience.",
+    "close": "Close"
+  },
+  "fontSize": {
+    "label": "Font Size",
+    "value": "{{size}}px"
+  },
+  "editor": {
+    "undo": "Undo",
+    "redo": "Redo",
+    "format": "Format Code",
+    "decreaseFont": "Decrease font size",
+    "increaseFont": "Increase font size"
+  }
+}
