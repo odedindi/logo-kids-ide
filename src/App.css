@@ -418,6 +418,13 @@
   text-align: start;
   border-radius: var(--radius-sm);
   transition: background 0.1s;
+  cursor: pointer;
+  font-family: inherit;
+  outline: none;
+}
+
+.problem-item:focus-visible {
+  box-shadow: 0 0 0 2px var(--primary);
 }
 
 [dir="rtl"] .problem-item {
@@ -450,6 +457,53 @@
 .problem-message {
   color: var(--text-primary);
   flex: 1;
+}
+
+.problem-fix-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--primary);
+  background: color-mix(in srgb, var(--primary) 12%, transparent);
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.problem-fix-btn:hover {
+  background: color-mix(in srgb, var(--primary) 22%, transparent);
+}
+
+.problem-fix-btn:active {
+  transform: scale(0.96);
+}
+
+.fix-all-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: none;
+  background: var(--primary);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: filter 0.15s, transform 0.1s;
+}
+
+.fix-all-btn:hover {
+  filter: brightness(1.1);
+}
+
+.fix-all-btn:active {
+  transform: scale(0.96);
 }
 
 .modal-overlay {

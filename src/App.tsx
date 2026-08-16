@@ -21,6 +21,13 @@ import { parse } from './lib/logo-core/parser';
 import { analyzeProgram } from './lib/logo-core/analyzer';
 import { getDir } from './lib/i18n';
 import { validateChallenge } from './lib/education/validation';
+import {
+  computeQuickFixes,
+  applyQuickFix,
+  applyAllQuickFixes,
+  lowercaseKeywordDiagnostics,
+} from './lib/editor/quick-fix';
+import type { QuickFix } from './lib/editor/quick-fix';
 import type { ExecutionContext, TurtleState, TraceOp, Diagnostic } from './lib/logo-core/types';
 import type { Challenge } from './lib/education/content';
 import './App.css';
@@ -77,6 +84,7 @@ function App() {
   const [isRunning, setIsRunning] = useState(false);
   const [speed, setSpeed] = useState(1);
   const [diagnostics, setDiagnostics] = useState<Diagnostic[]>([]);
+  const [quickFixes, setQuickFixes] = useState<QuickFix[]>([]);
   const [showWelcome, setShowWelcome] = useState(() => {
     return !localStorage.getItem('logo-kids-welcome-seen');
   });
@@ -151,6 +159,8 @@ function App() {
   }, [isRunning]);
 
   const runLint = useCallback((sourceCode: string) => {
+    const keywordDiags = lowercaseKeywordDiagnostics(sourceCode);
+    setQuickFixes(computeQuickFixes(sourceCode));
     try {
       const tokens = tokenize(sourceCode);
       const ast = parse(tokens);
@@ -161,15 +171,15 @@ function App() {
         }
       });
       const diags = analyzeProgram(ast, procedures);
-      setDiagnostics(diags);
+      setDiagnostics([...diags, ...keywordDiags]);
       return { ast, procedures, diags };
     } catch (e: unknown) {
       if (e && typeof e === 'object' && 'range' in e) {
         const err = e as Diagnostic;
-        setDiagnostics([err]);
+        setDiagnostics([err, ...keywordDiags]);
         return { ast: null, procedures: new Map(), diags: [err] };
       }
-      setDiagnostics([]);
+      setDiagnostics([...keywordDiags]);
       return { ast: null, procedures: new Map(), diags: [] };
     }
   }, []);
@@ -256,6 +266,20 @@ function App() {
   const handleFormat = useCallback(() => {
     setCode((prev) => formatCode(prev));
   }, []);
+
+  const handleApplyFix = useCallback((fix: QuickFix) => {
+    const next = applyQuickFix(code, fix);
+    if (next === code) return;
+    setCode(next);
+    runLint(next);
+  }, [code, runLint]);
+
+  const handleApplyAllFixes = useCallback(() => {
+    const next = applyAllQuickFixes(code);
+    if (next === code) return;
+    setCode(next);
+    runLint(next);
+  }, [code, runLint]);
 
   useEffect(() => {
     const handleGlobalKey = (e: KeyboardEvent) => {
@@ -355,7 +379,13 @@ function App() {
             <CodeEditor value={code} onChange={handleCodeChange} className="code-editor" />
           </div>
 
-          <ProblemsPanel diagnostics={diagnostics} onJumpToLine={handleJumpToLine} />
+          <ProblemsPanel
+            diagnostics={diagnostics}
+            quickFixes={quickFixes}
+            onJumpToLine={handleJumpToLine}
+            onApplyFix={handleApplyFix}
+            onApplyAllFixes={handleApplyAllFixes}
+          />
         </div>
 
         {!isMobile && (

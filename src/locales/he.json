@@ -63,7 +63,9 @@
     "error": "שגיאה",
     "warning": "אזהרה",
     "count_one": "בעיה אחת",
-    "count_other": "{{count}} בעיות"
+    "count_other": "{{count}} בעיות",
+    "fixIt": "תקן",
+    "fixItForMe": "תקן בשבילי"
   },
   "welcome": {
     "title": "ברוכים הבאים ללוגו לילדים! 🐢",
