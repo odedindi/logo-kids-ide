@@ -48,6 +48,8 @@ body {
   background: var(--bg-main);
   color: var(--text-primary);
   line-height: 1.5;
+  overscroll-behavior: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 [dir="rtl"] body {
@@ -60,6 +62,7 @@ button {
   background: none;
   font-family: inherit;
   font-size: inherit;
+  touch-action: manipulation;
 }
 
 button:focus-visible {

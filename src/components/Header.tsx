@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Moon, Sun, ChevronDown } from 'lucide-react';
+import { Moon, Sun, ChevronDown, Menu, X } from 'lucide-react';
 import { getDir } from '../lib/i18n';
 
 const LANGUAGES = [
@@ -8,7 +8,15 @@ const LANGUAGES = [
   { code: 'he', label: 'עברית', flag: '🇮🇱', dir: 'rtl' as const },
 ];
 
-export function Header({ onOpenShortcuts, onOpenAccessibility }: { onOpenShortcuts?: () => void; onOpenAccessibility?: () => void }) {
+interface HeaderProps {
+  onOpenShortcuts?: () => void;
+  onOpenAccessibility?: () => void;
+  isMobile?: boolean;
+  sidebarOpen?: boolean;
+  onToggleSidebar?: () => void;
+}
+
+export function Header({ onOpenShortcuts, onOpenAccessibility, isMobile, sidebarOpen, onToggleSidebar }: HeaderProps) {
   const { t, i18n } = useTranslation();
   const dir = getDir(i18n.language);
 
@@ -94,8 +102,18 @@ export function Header({ onOpenShortcuts, onOpenAccessibility }: { onOpenShortcu
   return (
     <header className="app-header" dir={dir} role="banner" aria-label={t('ariaLabels.header')}>
       <div className="header-left">
+        {isMobile && onToggleSidebar && (
+          <button
+            className="mobile-sidebar-toggle"
+            onClick={onToggleSidebar}
+            aria-label={sidebarOpen ? t('ariaLabels.closeSidebar') : t('ariaLabels.openSidebar')}
+            aria-expanded={sidebarOpen}
+          >
+            {sidebarOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        )}
         <h1 className="app-title">{t('app.name')}</h1>
-        <span className="app-tagline">{t('app.tagline')}</span>
+        {!isMobile && <span className="app-tagline">{t('app.tagline')}</span>}
       </div>
 
       <div className="header-right">
