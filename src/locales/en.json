@@ -63,7 +63,9 @@
     "error": "Error",
     "warning": "Warning",
     "count_one": "{{count}} problem",
-    "count_other": "{{count}} problems"
+    "count_other": "{{count}} problems",
+    "fixIt": "Fix it",
+    "fixItForMe": "Fix it for me"
   },
   "welcome": {
     "title": "Welcome to Logo Kids! 🐢",
